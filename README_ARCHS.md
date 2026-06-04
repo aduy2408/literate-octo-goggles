@@ -18,7 +18,9 @@ Mặc định:
 - `BATCH_SIZE=32`
 - `NUM_WORKERS=4`
 - `SEED=42`
-- training flags: `--epochs 5 --class-weight`
+- `EPOCHS=5`
+- `PRETRAIN_EPOCHS=2`, `FINETUNE_EPOCHS=3` cho CLIP/SigLIP nếu không override
+- training flags: `--class-weight`
 - AMP mặc định tắt trong benchmark. Bật nếu cần bằng `USE_AMP=1`.
 
 Override nếu cần:
@@ -29,11 +31,21 @@ OUTPUT_DIR=runs_5epoch_effb0 \
 MODEL=efficientnet_b0 \
 BATCH_SIZE=64 \
 NUM_WORKERS=8 \
+EPOCHS=10 \
 USE_AMP=0 \
 ./run_milk10k_5epoch_architecture_benchmark.sh
 ```
 
-CLIP và SigLIP trong benchmark dùng tổng 5 epoch: `--pretrain-epochs 2 --finetune-epochs 3`.
+CLIP và SigLIP mặc định tự chia tổng epoch: `PRETRAIN_EPOCHS=EPOCHS/2`, `FINETUNE_EPOCHS=EPOCHS-PRETRAIN_EPOCHS`.
+
+Nếu muốn tự set rõ:
+
+```bash
+EPOCHS=12 \
+PRETRAIN_EPOCHS=4 \
+FINETUNE_EPOCHS=8 \
+./run_milk10k_5epoch_architecture_benchmark.sh
+```
 
 ## 2. Chạy từng architecture riêng
 
