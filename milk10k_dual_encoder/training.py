@@ -4,12 +4,13 @@ from __future__ import annotations
 
 import argparse
 import json
+from pathlib import Path
 from typing import Any
 
 import pandas as pd
 import torch
 from torch import nn
-from torch.cuda.amp import GradScaler, autocast
+from torch.amp import GradScaler, autocast
 from tqdm.auto import tqdm
 
 from datasets import lesion_level_train_val_split, resolve_data_dir, set_seed
@@ -57,7 +58,7 @@ def run_epoch(model, loader, criterion, arch, args, device, optimizer=None, scal
         if training:
             optimizer.zero_grad(set_to_none=True)
         with torch.set_grad_enabled(training):
-            with autocast(enabled=use_amp):
+            with autocast("cuda", enabled=use_amp):
                 output = model(images, metadata)
                 loss, loss_parts = compute_loss(output, labels, attributes, criterion, arch, args, phase)
             if training:
@@ -163,7 +164,7 @@ def train_architecture(args: argparse.Namespace) -> dict[str, Any]:
     criterion = classification_loss(train_df, label_to_idx, args, device)
     optimizer = build_optimizer(model, args)
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode="min", factor=0.2, patience=2)
-    scaler = GradScaler(enabled=args.amp and device.type == "cuda")
+    scaler = GradScaler("cuda", enabled=args.amp and device.type == "cuda")
     checkpoint_path = run_dir / f"{run_name}_best.pt"
     start_epoch, best_val_loss = _maybe_resume(args, checkpoint_path, model, optimizer, device)
 
@@ -239,5 +240,17 @@ def _append_history(history, run_dir, run_name, phase, epoch, train_stats, val_s
 
 
 def _save_run_config(run_dir, run_name, args, arch, metadata_spec) -> None:
+    args_dict = {key: _json_safe(value) for key, value in vars(args).items()}
+    payload = {"args": args_dict, "architecture": arch.__dict__, "metadata_spec": _json_safe(metadata_spec)}
     with open(run_dir / f"{run_name}_run_config.json", "w", encoding="utf-8") as f:
-        json.dump({"args": vars(args), "architecture": arch.__dict__, "metadata_spec": metadata_spec}, f, indent=2)
+        json.dump(payload, f, indent=2, default=str)
+
+
+def _json_safe(value):
+    if isinstance(value, Path):
+        return str(value)
+    if isinstance(value, dict):
+        return {key: _json_safe(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_json_safe(item) for item in value]
+    return value

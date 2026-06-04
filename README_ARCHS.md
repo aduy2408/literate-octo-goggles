@@ -18,7 +18,8 @@ Mặc định:
 - `BATCH_SIZE=32`
 - `NUM_WORKERS=4`
 - `SEED=42`
-- training flags: `--epochs 5 --class-weight --amp`
+- training flags: `--epochs 5 --class-weight`
+- AMP mặc định tắt trong benchmark. Bật nếu cần bằng `USE_AMP=1`.
 
 Override nếu cần:
 
@@ -28,6 +29,7 @@ OUTPUT_DIR=runs_5epoch_effb0 \
 MODEL=efficientnet_b0 \
 BATCH_SIZE=64 \
 NUM_WORKERS=8 \
+USE_AMP=0 \
 ./run_milk10k_5epoch_architecture_benchmark.sh
 ```
 
@@ -46,8 +48,7 @@ python train_milk10k_fusion_dual_encoder_v2.py \
   --batch-size 32 \
   --num-workers 4 \
   --seed 42 \
-  --class-weight \
-  --amp
+  --class-weight
 ```
 
 Ví dụ chạy partial channel attention:
@@ -61,8 +62,7 @@ python train_milk10k_partial_channel_attention_dual_encoder.py \
   --batch-size 32 \
   --num-workers 4 \
   --seed 42 \
-  --class-weight \
-  --amp
+  --class-weight
 ```
 
 Ví dụ chạy CLIP-style 2-stage:
@@ -78,8 +78,7 @@ python train_milk10k_clip_dual_encoder.py \
   --batch-size 32 \
   --num-workers 4 \
   --seed 42 \
-  --class-weight \
-  --amp
+  --class-weight
 ```
 
 Backbone lightweight hiện có:
@@ -240,4 +239,3 @@ Không train model, chỉ kiểm tra import/syntax:
 ```bash
 python -m py_compile milk10k_dual_encoder_common.py milk10k_dual_encoder/*.py train_milk10k_*.py
 ```
-

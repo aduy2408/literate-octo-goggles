@@ -36,7 +36,7 @@ from sklearn.preprocessing import label_binarize
 from sklearn.utils.class_weight import compute_class_weight
 from timm.data import create_transform, resolve_data_config
 from torch import nn
-from torch.cuda.amp import GradScaler, autocast
+from torch.amp import GradScaler, autocast
 from torch.utils.data import DataLoader
 from tqdm.auto import tqdm
 
@@ -306,7 +306,7 @@ def run_epoch(
             optimizer.zero_grad(set_to_none=True)
 
         with torch.set_grad_enabled(training):
-            with autocast(enabled=use_amp):
+            with autocast("cuda", enabled=use_amp):
                 logits = forward_batch(model, images)
                 loss = criterion(logits, labels)
 
@@ -559,7 +559,7 @@ def train_one_model(
     criterion = build_loss(train_df, label_to_idx, args, device)
     optimizer = torch.optim.AdamW((p for p in model.parameters() if p.requires_grad), lr=args.lr, weight_decay=args.weight_decay)
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode="min", factor=0.2, patience=2)
-    scaler = GradScaler(enabled=args.amp and device.type == "cuda")
+    scaler = GradScaler("cuda", enabled=args.amp and device.type == "cuda")
 
     start_epoch = 1
     best_val_loss = float("inf")

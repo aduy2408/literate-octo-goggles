@@ -11,6 +11,7 @@ set -euo pipefail
 #   BATCH_SIZE=32
 #   NUM_WORKERS=4
 #   SEED=42
+#   USE_AMP=0
 #
 # Syntax-only validation, if desired:
 #   python -m py_compile milk10k_dual_encoder_common.py milk10k_dual_encoder/*.py train_milk10k_*.py
@@ -21,6 +22,7 @@ MODEL="${MODEL:-efficientnet_b0}"
 BATCH_SIZE="${BATCH_SIZE:-32}"
 NUM_WORKERS="${NUM_WORKERS:-4}"
 SEED="${SEED:-42}"
+USE_AMP="${USE_AMP:-0}"
 
 COMMON_ARGS=(
   --data-dir "${DATA_DIR}"
@@ -31,8 +33,11 @@ COMMON_ARGS=(
   --num-workers "${NUM_WORKERS}"
   --seed "${SEED}"
   --class-weight
-  --amp
 )
+
+if [[ "${USE_AMP}" == "1" || "${USE_AMP}" == "true" || "${USE_AMP}" == "TRUE" ]]; then
+  COMMON_ARGS+=(--amp)
+fi
 
 python train_milk10k_fusion_dual_encoder_v2.py "${COMMON_ARGS[@]}"
 python train_milk10k_multitask_dual_encoder.py "${COMMON_ARGS[@]}"
