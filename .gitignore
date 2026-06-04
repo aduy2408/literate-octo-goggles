@@ -1,0 +1,7 @@
+MILK10k*/
+*.zip
+hf_milk10k_dataset/images/
+__pycache__/
+*.py[cod]
+hf*/
+*.ipynb
