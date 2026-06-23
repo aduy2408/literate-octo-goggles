@@ -49,129 +49,136 @@ run_feature_config extract_features
 ###### Linear probe ######
 
 PROBE_DIR="$OUT_ROOT/linear_probe_$MODEL_NAME"
-PROBE_METRICS="$PROBE_DIR/metrics.json"
 
 COMMON_PROBE_ARGS=(
   --train-features "$TRAIN_FEATURES"
   --val-features "$VAL_FEATURES"
-  --output-dir "$PROBE_DIR"
 )
 
 run_probe_config() {
   local run_name="$1"
   shift
-  local log="$OUT_ROOT/${run_name}.log"
+  local out_dir="$PROBE_DIR/$run_name"
+  local log="$PROBE_DIR/${run_name}.log"
+  local metrics="$out_dir/metrics.json"
 
-  mkdir -p "$PROBE_DIR"
+  mkdir -p "$out_dir"
   echo "START $run_name"
 
-  if [[ -s "$PROBE_METRICS" ]]; then
-    echo "SKIP probe; metrics.json already exists at $PROBE_DIR"
+  if [[ -s "$metrics" ]]; then
+    echo "SKIP probe; metrics.json already exists at $out_dir"
   else
     run_py milk10k_new_collapse_research.scripts.linear_probe \
-      "${COMMON_PROBE_ARGS[@]}" "$@" >"$log" 2>&1
+      "${COMMON_PROBE_ARGS[@]}" \
+      --output-dir "$out_dir" \
+      "$@" >"$log" 2>&1
   fi
 
-  test -s "$PROBE_METRICS" || { echo "FATAL: missing $PROBE_METRICS" >&2; exit 3; }
+  test -s "$metrics" || { echo "FATAL: missing $metrics" >&2; exit 3; }
   echo "DONE $run_name"
 }
 
-run_probe_config linear_probe_baseline --feature-mode pair --probe logistic
-run_probe_config linear_probe_clinical --feature-mode clinical --probe logistic
-run_probe_config linear_probe_dermoscopic --feature-mode dermoscopic --probe logistic
-run_probe_config linear_probe_mlp --feature-mode pair --probe mlp
+run_probe_config baseline --feature-mode pair --probe logistic
+run_probe_config clinical --feature-mode clinical --probe logistic
+run_probe_config dermoscopic --feature-mode dermoscopic --probe logistic
+run_probe_config mlp --feature-mode pair --probe mlp
+run_probe_config rf --feature-mode pair --probe rf
 
 ###### Hierarchical probe ######
 
-HIER_DIR="$OUT_ROOT/hierarchical_$MODEL_NAME"
-HIER_METRICS="$HIER_DIR/metrics.json"
+HIER_BASE="$OUT_ROOT/hierarchical_$MODEL_NAME"
 
 COMMON_HIER_ARGS=(
   --train-features "$TRAIN_FEATURES"
   --val-features "$VAL_FEATURES"
-  --output-dir "$HIER_DIR"
 )
 
 run_hier_config() {
   local run_name="$1"
   shift
-  local log="$OUT_ROOT/${run_name}.log"
+  local out_dir="$HIER_BASE/$run_name"
+  local log="$HIER_BASE/${run_name}.log"
+  local metrics="$out_dir/metrics.json"
 
-  mkdir -p "$HIER_DIR"
+  mkdir -p "$out_dir"
   echo "START $run_name"
 
-  if [[ -s "$HIER_METRICS" ]]; then
-    echo "SKIP hierarchical; metrics.json already exists at $HIER_DIR"
+  if [[ -s "$metrics" ]]; then
+    echo "SKIP hierarchical; metrics.json already exists at $out_dir"
   else
     run_py milk10k_new_collapse_research.scripts.train_hierarchical \
-      "${COMMON_HIER_ARGS[@]}" "$@" >"$log" 2>&1
+      "${COMMON_HIER_ARGS[@]}" \
+      --output-dir "$out_dir" \
+      "$@" >"$log" 2>&1
   fi
 
-  test -s "$HIER_METRICS" || { echo "FATAL: missing $HIER_METRICS" >&2; exit 3; }
+  test -s "$metrics" || { echo "FATAL: missing $metrics" >&2; exit 3; }
   echo "DONE $run_name"
 }
 
-run_hier_config hierarchical_probe --feature-mode pair
-run_hier_config hierarchical_probe_clinical --feature-mode clinical
-run_hier_config hierarchical_probe_dermoscopic --feature-mode dermoscopic
+run_hier_config pair --feature-mode pair
+run_hier_config clinical --feature-mode clinical
+run_hier_config dermoscopic --feature-mode dermoscopic
 
 ###### Multimodal SSL ######
 
-SSL_DIR="$OUT_ROOT/multimodal_ssl"
-SSL_METRICS="$SSL_DIR/metrics.json"
+SSL_BASE="$OUT_ROOT/multimodal_ssl"
 
 run_ssl_config() {
   local run_name="$1"
   shift
-  local log="$OUT_ROOT/${run_name}.log"
+  local out_dir="$SSL_BASE/$run_name"
+  local log="$SSL_BASE/${run_name}.log"
+  local metrics="$out_dir/metrics.json"
 
-  mkdir -p "$SSL_DIR"
+  mkdir -p "$out_dir"
   echo "START $run_name"
 
-  if [[ -s "$SSL_METRICS" ]]; then
-    echo "SKIP SSL; metrics.json already exists at $SSL_DIR"
+  if [[ -s "$metrics" ]]; then
+    echo "SKIP SSL; metrics.json already exists at $out_dir"
   else
     run_py milk10k_new_collapse_research.scripts.train_multimodal_ssl \
       --data-dir "$DATA_DIR" \
-      --output-dir "$SSL_DIR" \
+      --output-dir "$out_dir" \
       "$@" >"$log" 2>&1
   fi
 
-  test -s "$SSL_METRICS" || { echo "FATAL: missing $SSL_METRICS" >&2; exit 3; }
+  test -s "$metrics" || { echo "FATAL: missing $metrics" >&2; exit 3; }
   echo "DONE $run_name"
 }
 
-run_ssl_config multimodal_ssl_convnext --backbone convnext_base --epochs 20
+run_ssl_config convnext --backbone convnext_base --epochs 20
 
 ###### Decision policy (optional, requires a predictions CSV) ######
 
 if [[ -n "$PREDICTIONS_CSV" && -s "$PREDICTIONS_CSV" ]]; then
-  POLICY_DIR="$OUT_ROOT/decision_policy"
-  POLICY_METRICS="$POLICY_DIR/metrics.json"
+  POLICY_BASE="$OUT_ROOT/decision_policy"
 
   run_policy_config() {
     local run_name="$1"
     shift
-    local log="$OUT_ROOT/${run_name}.log"
+    local out_dir="$POLICY_BASE/$run_name"
+    local log="$POLICY_BASE/${run_name}.log"
+    local metrics="$out_dir/metrics.json"
 
-    mkdir -p "$POLICY_DIR"
+    mkdir -p "$out_dir"
     echo "START $run_name"
 
-    if [[ -s "$POLICY_METRICS" ]]; then
-      echo "SKIP policy; metrics.json already exists at $POLICY_DIR"
+    if [[ -s "$metrics" ]]; then
+      echo "SKIP policy; metrics.json already exists at $out_dir"
     else
       run_py milk10k_new_collapse_research.scripts.analyze_decision_policy \
         --predictions "$PREDICTIONS_CSV" \
-        --output-dir "$POLICY_DIR" \
+        --output-dir "$out_dir" \
         "$@" >"$log" 2>&1
     fi
 
-    test -s "$POLICY_METRICS" || { echo "FATAL: missing $POLICY_METRICS" >&2; exit 3; }
+    test -s "$metrics" || { echo "FATAL: missing $metrics" >&2; exit 3; }
     echo "DONE $run_name"
   }
 
-  run_policy_config decision_policy_tail --tail-only
-  run_policy_config decision_policy_all
+  run_policy_config tail_only --tail-only
+  run_policy_config full --no-tail-only
 else
   echo "SKIP decision policy; set PREDICTIONS_CSV to a valid prediction CSV to enable"
 fi

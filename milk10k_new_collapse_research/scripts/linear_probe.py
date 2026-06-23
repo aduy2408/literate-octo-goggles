@@ -8,6 +8,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.neural_network import MLPClassifier
 from sklearn.pipeline import make_pipeline
@@ -47,6 +48,14 @@ def main() -> None:
             class_weight="balanced",
             solver="lbfgs",
             random_state=args.seed,
+        )
+    elif args.probe == "rf":
+        clf = RandomForestClassifier(
+            n_estimators=300,
+            max_depth=20,
+            class_weight="balanced",
+            random_state=args.seed,
+            n_jobs=-1,
         )
     else:
         clf = MLPClassifier(
