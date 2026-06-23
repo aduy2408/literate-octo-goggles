@@ -81,8 +81,14 @@ run_probe_config() {
 run_probe_config baseline --feature-mode pair --probe logistic
 run_probe_config clinical --feature-mode clinical --probe logistic
 run_probe_config dermoscopic --feature-mode dermoscopic --probe logistic
+
 run_probe_config mlp --feature-mode pair --probe mlp
+run_probe_config clinical_mlp --feature-mode clinical --probe mlp
+run_probe_config dermoscopic_mlp --feature-mode dermoscopic --probe mlp
+
 run_probe_config rf --feature-mode pair --probe rf
+run_probe_config clinical_rf --feature-mode clinical --probe rf
+run_probe_config dermoscopic_rf --feature-mode dermoscopic --probe rf
 
 ###### Hierarchical probe ######
 

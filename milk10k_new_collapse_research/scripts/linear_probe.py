@@ -25,7 +25,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--val-features", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, default=RESULTS_ROOT / "linear_probe")
     parser.add_argument("--feature-mode", choices=["pair", "clinical", "dermoscopic"], default="pair")
-    parser.add_argument("--probe", choices=["logistic", "mlp"], default="logistic")
+    parser.add_argument("--probe", choices=["logistic", "mlp", "rf"], default="logistic")
     parser.add_argument("--max-iter", type=int, default=1000)
     parser.add_argument("--seed", type=int, default=42)
     return parser.parse_args()
