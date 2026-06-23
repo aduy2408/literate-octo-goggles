@@ -1,0 +1,153 @@
+{
+  "repos": [
+    {
+      "repo_id": "duyle2408/results_dual_encoder_ablation_runs_v2",
+      "destination": "/mnt/data/imp301/results/results_dual_encoder_ablation_runs_v2",
+      "remote_file_count": 125,
+      "repo_type": "dataset",
+      "skipped_pt": [
+        "run_baseline_ema/best.pt",
+        "run_baseline_ema/best_ema.pt",
+        "run_baseline_ema/best_lws.pt",
+        "run_baseline_ema/best_raw.pt",
+        "run_baseline_ema/last.pt",
+        "run_tau025_nosampler_ema/best.pt",
+        "run_tau025_nosampler_ema/best_ema.pt",
+        "run_tau025_nosampler_ema/best_lws.pt",
+        "run_tau025_nosampler_ema/best_raw.pt",
+        "run_tau025_nosampler_ema/last.pt",
+        "run_tau025_sampler_ema/best.pt",
+        "run_tau025_sampler_ema/best_ema.pt",
+        "run_tau025_sampler_ema/best_lws.pt",
+        "run_tau025_sampler_ema/best_raw.pt",
+        "run_tau025_sampler_ema/last.pt",
+        "run_tau050_sampler_ema/best.pt",
+        "run_tau050_sampler_ema/best_ema.pt",
+        "run_tau050_sampler_ema/best_lws.pt",
+        "run_tau050_sampler_ema/best_raw.pt",
+        "run_tau050_sampler_ema/last.pt"
+      ],
+      "local_file_count": 105
+    },
+    {
+      "repo_id": "duyle2408/report_runs_hybrid_tail_ablation",
+      "destination": "/mnt/data/imp301/results/report_runs_hybrid_tail_ablation",
+      "remote_file_count": 47,
+      "repo_type": "dataset",
+      "skipped_pt": [
+        "report_effv2b2_meta_concat_focal_hybrid_aug_tail10_safe/best.pt",
+        "report_effv2b2_meta_concat_focal_hybrid_aug_tail10_safe/best_raw.pt",
+        "report_effv2b2_meta_concat_focal_hybrid_aug_tail10_safe/last.pt",
+        "report_effv2b2_meta_concat_focal_hybrid_clean/best.pt",
+        "report_effv2b2_meta_concat_focal_hybrid_clean/best_raw.pt",
+        "report_effv2b2_meta_concat_focal_hybrid_clean/last.pt"
+      ],
+      "local_file_count": 41
+    },
+    {
+      "repo_id": "duyle2408/results_machine3_fusion_loss",
+      "destination": "/mnt/data/imp301/results/results_machine3_fusion_loss",
+      "remote_file_count": 135,
+      "repo_type": "dataset",
+      "skipped_pt": [
+        "report_effv2b2_meta_co_attention_focal_s05_clean/best.pt",
+        "report_effv2b2_meta_co_attention_focal_s05_clean/last.pt",
+        "report_effv2b2_meta_concat_ce_dice_s05_clean/best.pt",
+        "report_effv2b2_meta_concat_ce_dice_s05_clean/last.pt",
+        "report_effv2b2_meta_concat_ce_f1_s05_clean/best.pt",
+        "report_effv2b2_meta_concat_ce_f1_s05_clean/last.pt",
+        "report_effv2b2_meta_concat_ce_s05_clean/best.pt",
+        "report_effv2b2_meta_concat_ce_s05_clean/last.pt",
+        "report_effv2b2_meta_concat_ldam_s05_clean/best.pt",
+        "report_effv2b2_meta_concat_ldam_s05_clean/last.pt",
+        "report_effv2b2_meta_concat_ldam_s05_clean/tail_best.pt",
+        "report_effv2b2_meta_cross_attention_focal_s05_clean/best.pt",
+        "report_effv2b2_meta_cross_attention_focal_s05_clean/last.pt",
+        "report_effv2b2_meta_low_rank_bilinear_focal_s05_clean/best.pt",
+        "report_effv2b2_meta_low_rank_bilinear_focal_s05_clean/last.pt"
+      ],
+      "local_file_count": 120
+    },
+    {
+      "repo_id": "duyle2408/report_runs_machine2_meta_aug_derm",
+      "destination": "/mnt/data/imp301/results/report_runs_machine2_meta_aug_derm",
+      "remote_file_count": 106,
+      "repo_type": "dataset",
+      "skipped_pt": [
+        "report_effv2b2_meta_concat_focal_hybrid_clean/best.pt",
+        "report_effv2b2_meta_concat_focal_hybrid_clean/best_raw.pt",
+        "report_effv2b2_meta_concat_focal_hybrid_clean/last.pt",
+        "report_effv2b2_meta_concat_focal_s05_aug_inf15_safe/best.pt",
+        "report_effv2b2_meta_concat_focal_s05_aug_inf15_safe/last.pt",
+        "report_effv2b2_meta_concat_focal_s05_aug_inf_benoth15_safe/best.pt",
+        "report_effv2b2_meta_concat_focal_s05_aug_inf_benoth15_safe/last.pt",
+        "report_effv2b2_meta_concat_focal_s05_aug_tail10_safe/best.pt",
+        "report_effv2b2_meta_concat_focal_s05_aug_tail10_safe/last.pt",
+        "report_effv2b2_meta_concat_focal_s05_clean/best.pt",
+        "report_effv2b2_meta_concat_focal_s05_clean/last.pt"
+      ],
+      "local_file_count": 95
+    },
+    {
+      "repo_id": "duyle2408/results_machine1_backbones",
+      "destination": "/mnt/data/imp301/results/results_machine1_backbones",
+      "remote_file_count": 58,
+      "repo_type": "dataset",
+      "skipped_pt": [
+        "report_backbone_convnext_base_nometa_concat_focal_s05_clean/best.pt",
+        "report_backbone_convnext_base_nometa_concat_focal_s05_clean/last.pt",
+        "report_backbone_effb2_nometa_concat_focal_s05_clean/best.pt",
+        "report_backbone_effb2_nometa_concat_focal_s05_clean/last.pt",
+        "report_backbone_effv2b2_nometa_concat_focal_s05_clean/best.pt",
+        "report_backbone_effv2b2_nometa_concat_focal_s05_clean/last.pt"
+      ],
+      "local_file_count": 52
+    },
+    {
+      "repo_id": "duyle2408/report_single_encoder_no_freeze",
+      "destination": "/mnt/data/imp301/results/report_single_encoder_no_freeze",
+      "remote_file_count": 73,
+      "repo_type": "dataset",
+      "skipped_pt": [
+        "singleenc_canvas_meta_sampler05/best.pt",
+        "singleenc_canvas_meta_sampler05/best_raw.pt",
+        "singleenc_canvas_meta_sampler05/last.pt",
+        "singleenc_pool_meta_sampler05/best.pt",
+        "singleenc_pool_meta_sampler05/best_raw.pt",
+        "singleenc_pool_meta_sampler05/last.pt",
+        "singleenc_pool_nometa_clean/best.pt",
+        "singleenc_pool_nometa_clean/best_raw.pt",
+        "singleenc_pool_nometa_clean/last.pt"
+      ],
+      "local_file_count": 64
+    },
+    {
+      "repo_id": "duyle2408/report_single_encoder",
+      "destination": "/mnt/data/imp301/results/report_single_encoder",
+      "remote_file_count": 139,
+      "repo_type": "dataset",
+      "skipped_pt": [
+        "singleenc_canvas_meta_clean/best.pt",
+        "singleenc_canvas_meta_clean/best_raw.pt",
+        "singleenc_canvas_meta_clean/last.pt",
+        "singleenc_canvas_meta_sampler05/best.pt",
+        "singleenc_canvas_meta_sampler05/best_raw.pt",
+        "singleenc_canvas_meta_sampler05/last.pt",
+        "singleenc_canvas_nometa_clean/best.pt",
+        "singleenc_canvas_nometa_clean/best_raw.pt",
+        "singleenc_canvas_nometa_clean/last.pt",
+        "singleenc_pool_meta_clean/best.pt",
+        "singleenc_pool_meta_clean/best_raw.pt",
+        "singleenc_pool_meta_clean/last.pt",
+        "singleenc_pool_meta_sampler05/best.pt",
+        "singleenc_pool_meta_sampler05/best_raw.pt",
+        "singleenc_pool_meta_sampler05/last.pt",
+        "singleenc_pool_nometa_clean/best.pt",
+        "singleenc_pool_nometa_clean/best_raw.pt",
+        "singleenc_pool_nometa_clean/last.pt"
+      ],
+      "local_file_count": 121
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,82 @@
+{
+  "args": {
+    "data_dir": "/marimo/milk10k",
+    "clinical_checkpoint": "/marimo/ufes_backbone/effnetb2/best_effnetb2.pth",
+    "dermoscopic_checkpoint": "/marimo/ham10k_backbone/efficientnet_b2/efficientnet_b2_best.pt",
+    "output_dir": "milk10k_dual_effb2_metadata_milk_lt_sampler_p05_img384",
+    "freeze_epochs": 10,
+    "finetune_epochs": 30,
+    "batch_size": 8,
+    "image_size": 384,
+    "num_workers": 0,
+    "head_lr": 0.0001,
+    "encoder_lr": 1e-05,
+    "weight_decay": 0.0001,
+    "val_size": 0.2,
+    "seed": 42,
+    "branch_dim": 512,
+    "metadata_dim": 64,
+    "classifier_hidden_dim": 512,
+    "dropout": 0.3,
+    "class_weight": false,
+    "weighted_sampler": true,
+    "sampler_power": 0.5,
+    "loss": "milk_lt",
+    "focal_gamma": 2.0,
+    "lt_beta": 0.9999,
+    "lt_max_margin": 0.5,
+    "lt_logit_tau": 1.0,
+    "lt_draw_start_epoch": 0,
+    "lt_alpha_max": 10.0,
+    "k_folds": 1,
+    "amp": false,
+    "backbone_backend": "auto",
+    "imagenet_pretrained": false,
+    "patience": 6
+  },
+  "class_names": [
+    "AKIEC",
+    "BCC",
+    "BEN_OTH",
+    "BKL",
+    "DF",
+    "INF",
+    "MAL_OTH",
+    "MEL",
+    "NV",
+    "SCCKA",
+    "VASC"
+  ],
+  "metadata_spec": {
+    "sex_values": [
+      "female",
+      "male",
+      "unknown"
+    ],
+    "site_values": [
+      "foot",
+      "genital",
+      "hand",
+      "head_neck_face",
+      "lower_extremity",
+      "trunk",
+      "unknown",
+      "upper_extremity"
+    ],
+    "monet_columns": [
+      "MONET_erythema",
+      "MONET_gel_water_drop_fluid_dermoscopy_liquid",
+      "MONET_hair",
+      "MONET_pigmented",
+      "MONET_skin_markings_pen_ink_purple_pen",
+      "MONET_ulceration_crust",
+      "MONET_vasculature_vessels"
+    ]
+  },
+  "train_size": 4192,
+  "val_size": 1048,
+  "fold": null,
+  "fusion": "concat(clinical_head, dermoscopic_head, metadata_head)",
+  "clinical_backbone": "torchvision efficientnet_b2",
+  "dermoscopic_backbone": "timm efficientnet_b2"
+}

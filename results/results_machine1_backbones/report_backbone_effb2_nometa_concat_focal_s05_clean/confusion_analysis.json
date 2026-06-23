@@ -1,0 +1,899 @@
+{
+  "false_negatives_by_true_class": {
+    "AKIEC": [
+      {
+        "true": "AKIEC",
+        "predicted": "SCCKA",
+        "count": 8,
+        "rate_of_true": 0.13114754098360656
+      },
+      {
+        "true": "AKIEC",
+        "predicted": "BCC",
+        "count": 6,
+        "rate_of_true": 0.09836065573770492
+      },
+      {
+        "true": "AKIEC",
+        "predicted": "BKL",
+        "count": 2,
+        "rate_of_true": 0.03278688524590164
+      },
+      {
+        "true": "AKIEC",
+        "predicted": "MEL",
+        "count": 2,
+        "rate_of_true": 0.03278688524590164
+      },
+      {
+        "true": "AKIEC",
+        "predicted": "INF",
+        "count": 1,
+        "rate_of_true": 0.01639344262295082
+      }
+    ],
+    "BCC": [
+      {
+        "true": "BCC",
+        "predicted": "AKIEC",
+        "count": 30,
+        "rate_of_true": 0.05952380952380952
+      },
+      {
+        "true": "BCC",
+        "predicted": "SCCKA",
+        "count": 20,
+        "rate_of_true": 0.03968253968253968
+      },
+      {
+        "true": "BCC",
+        "predicted": "BKL",
+        "count": 14,
+        "rate_of_true": 0.027777777777777776
+      },
+      {
+        "true": "BCC",
+        "predicted": "MEL",
+        "count": 7,
+        "rate_of_true": 0.013888888888888888
+      },
+      {
+        "true": "BCC",
+        "predicted": "DF",
+        "count": 3,
+        "rate_of_true": 0.005952380952380952
+      },
+      {
+        "true": "BCC",
+        "predicted": "NV",
+        "count": 2,
+        "rate_of_true": 0.003968253968253968
+      },
+      {
+        "true": "BCC",
+        "predicted": "BEN_OTH",
+        "count": 1,
+        "rate_of_true": 0.001984126984126984
+      },
+      {
+        "true": "BCC",
+        "predicted": "INF",
+        "count": 1,
+        "rate_of_true": 0.001984126984126984
+      },
+      {
+        "true": "BCC",
+        "predicted": "VASC",
+        "count": 1,
+        "rate_of_true": 0.001984126984126984
+      }
+    ],
+    "BEN_OTH": [
+      {
+        "true": "BEN_OTH",
+        "predicted": "BCC",
+        "count": 2,
+        "rate_of_true": 0.2222222222222222
+      },
+      {
+        "true": "BEN_OTH",
+        "predicted": "MEL",
+        "count": 2,
+        "rate_of_true": 0.2222222222222222
+      },
+      {
+        "true": "BEN_OTH",
+        "predicted": "BKL",
+        "count": 1,
+        "rate_of_true": 0.1111111111111111
+      },
+      {
+        "true": "BEN_OTH",
+        "predicted": "INF",
+        "count": 1,
+        "rate_of_true": 0.1111111111111111
+      },
+      {
+        "true": "BEN_OTH",
+        "predicted": "NV",
+        "count": 1,
+        "rate_of_true": 0.1111111111111111
+      }
+    ],
+    "BKL": [
+      {
+        "true": "BKL",
+        "predicted": "BCC",
+        "count": 22,
+        "rate_of_true": 0.2018348623853211
+      },
+      {
+        "true": "BKL",
+        "predicted": "SCCKA",
+        "count": 12,
+        "rate_of_true": 0.11009174311926606
+      },
+      {
+        "true": "BKL",
+        "predicted": "AKIEC",
+        "count": 10,
+        "rate_of_true": 0.09174311926605505
+      },
+      {
+        "true": "BKL",
+        "predicted": "MEL",
+        "count": 6,
+        "rate_of_true": 0.05504587155963303
+      },
+      {
+        "true": "BKL",
+        "predicted": "NV",
+        "count": 4,
+        "rate_of_true": 0.03669724770642202
+      },
+      {
+        "true": "BKL",
+        "predicted": "DF",
+        "count": 1,
+        "rate_of_true": 0.009174311926605505
+      },
+      {
+        "true": "BKL",
+        "predicted": "INF",
+        "count": 1,
+        "rate_of_true": 0.009174311926605505
+      }
+    ],
+    "DF": [
+      {
+        "true": "DF",
+        "predicted": "BCC",
+        "count": 1,
+        "rate_of_true": 0.1
+      },
+      {
+        "true": "DF",
+        "predicted": "INF",
+        "count": 1,
+        "rate_of_true": 0.1
+      },
+      {
+        "true": "DF",
+        "predicted": "MEL",
+        "count": 1,
+        "rate_of_true": 0.1
+      },
+      {
+        "true": "DF",
+        "predicted": "NV",
+        "count": 1,
+        "rate_of_true": 0.1
+      }
+    ],
+    "INF": [
+      {
+        "true": "INF",
+        "predicted": "BCC",
+        "count": 3,
+        "rate_of_true": 0.3
+      },
+      {
+        "true": "INF",
+        "predicted": "AKIEC",
+        "count": 1,
+        "rate_of_true": 0.1
+      },
+      {
+        "true": "INF",
+        "predicted": "BEN_OTH",
+        "count": 1,
+        "rate_of_true": 0.1
+      },
+      {
+        "true": "INF",
+        "predicted": "DF",
+        "count": 1,
+        "rate_of_true": 0.1
+      }
+    ],
+    "MAL_OTH": [
+      {
+        "true": "MAL_OTH",
+        "predicted": "BCC",
+        "count": 1,
+        "rate_of_true": 0.5
+      },
+      {
+        "true": "MAL_OTH",
+        "predicted": "MEL",
+        "count": 1,
+        "rate_of_true": 0.5
+      }
+    ],
+    "MEL": [
+      {
+        "true": "MEL",
+        "predicted": "NV",
+        "count": 20,
+        "rate_of_true": 0.2222222222222222
+      },
+      {
+        "true": "MEL",
+        "predicted": "BCC",
+        "count": 6,
+        "rate_of_true": 0.06666666666666667
+      },
+      {
+        "true": "MEL",
+        "predicted": "BKL",
+        "count": 3,
+        "rate_of_true": 0.03333333333333333
+      },
+      {
+        "true": "MEL",
+        "predicted": "VASC",
+        "count": 2,
+        "rate_of_true": 0.022222222222222223
+      },
+      {
+        "true": "MEL",
+        "predicted": "AKIEC",
+        "count": 1,
+        "rate_of_true": 0.011111111111111112
+      },
+      {
+        "true": "MEL",
+        "predicted": "INF",
+        "count": 1,
+        "rate_of_true": 0.011111111111111112
+      },
+      {
+        "true": "MEL",
+        "predicted": "SCCKA",
+        "count": 1,
+        "rate_of_true": 0.011111111111111112
+      }
+    ],
+    "NV": [
+      {
+        "true": "NV",
+        "predicted": "MEL",
+        "count": 13,
+        "rate_of_true": 0.087248322147651
+      },
+      {
+        "true": "NV",
+        "predicted": "BCC",
+        "count": 3,
+        "rate_of_true": 0.020134228187919462
+      },
+      {
+        "true": "NV",
+        "predicted": "BKL",
+        "count": 3,
+        "rate_of_true": 0.020134228187919462
+      },
+      {
+        "true": "NV",
+        "predicted": "VASC",
+        "count": 2,
+        "rate_of_true": 0.013422818791946308
+      },
+      {
+        "true": "NV",
+        "predicted": "BEN_OTH",
+        "count": 1,
+        "rate_of_true": 0.006711409395973154
+      },
+      {
+        "true": "NV",
+        "predicted": "DF",
+        "count": 1,
+        "rate_of_true": 0.006711409395973154
+      }
+    ],
+    "SCCKA": [
+      {
+        "true": "SCCKA",
+        "predicted": "AKIEC",
+        "count": 13,
+        "rate_of_true": 0.1368421052631579
+      },
+      {
+        "true": "SCCKA",
+        "predicted": "BCC",
+        "count": 12,
+        "rate_of_true": 0.12631578947368421
+      },
+      {
+        "true": "SCCKA",
+        "predicted": "BKL",
+        "count": 6,
+        "rate_of_true": 0.06315789473684211
+      },
+      {
+        "true": "SCCKA",
+        "predicted": "DF",
+        "count": 2,
+        "rate_of_true": 0.021052631578947368
+      },
+      {
+        "true": "SCCKA",
+        "predicted": "INF",
+        "count": 1,
+        "rate_of_true": 0.010526315789473684
+      }
+    ],
+    "VASC": [
+      {
+        "true": "VASC",
+        "predicted": "BCC",
+        "count": 1,
+        "rate_of_true": 0.1111111111111111
+      },
+      {
+        "true": "VASC",
+        "predicted": "SCCKA",
+        "count": 1,
+        "rate_of_true": 0.1111111111111111
+      }
+    ]
+  },
+  "false_positives_by_predicted_class": {
+    "AKIEC": [
+      {
+        "predicted": "AKIEC",
+        "true": "BCC",
+        "count": 30,
+        "rate_of_predicted": 0.30927835051546393
+      },
+      {
+        "predicted": "AKIEC",
+        "true": "SCCKA",
+        "count": 13,
+        "rate_of_predicted": 0.13402061855670103
+      },
+      {
+        "predicted": "AKIEC",
+        "true": "BKL",
+        "count": 10,
+        "rate_of_predicted": 0.10309278350515463
+      },
+      {
+        "predicted": "AKIEC",
+        "true": "INF",
+        "count": 1,
+        "rate_of_predicted": 0.010309278350515464
+      },
+      {
+        "predicted": "AKIEC",
+        "true": "MEL",
+        "count": 1,
+        "rate_of_predicted": 0.010309278350515464
+      }
+    ],
+    "BCC": [
+      {
+        "predicted": "BCC",
+        "true": "BKL",
+        "count": 22,
+        "rate_of_predicted": 0.04564315352697095
+      },
+      {
+        "predicted": "BCC",
+        "true": "SCCKA",
+        "count": 12,
+        "rate_of_predicted": 0.024896265560165973
+      },
+      {
+        "predicted": "BCC",
+        "true": "AKIEC",
+        "count": 6,
+        "rate_of_predicted": 0.012448132780082987
+      },
+      {
+        "predicted": "BCC",
+        "true": "MEL",
+        "count": 6,
+        "rate_of_predicted": 0.012448132780082987
+      },
+      {
+        "predicted": "BCC",
+        "true": "INF",
+        "count": 3,
+        "rate_of_predicted": 0.006224066390041493
+      },
+      {
+        "predicted": "BCC",
+        "true": "NV",
+        "count": 3,
+        "rate_of_predicted": 0.006224066390041493
+      },
+      {
+        "predicted": "BCC",
+        "true": "BEN_OTH",
+        "count": 2,
+        "rate_of_predicted": 0.004149377593360996
+      },
+      {
+        "predicted": "BCC",
+        "true": "DF",
+        "count": 1,
+        "rate_of_predicted": 0.002074688796680498
+      },
+      {
+        "predicted": "BCC",
+        "true": "MAL_OTH",
+        "count": 1,
+        "rate_of_predicted": 0.002074688796680498
+      },
+      {
+        "predicted": "BCC",
+        "true": "VASC",
+        "count": 1,
+        "rate_of_predicted": 0.002074688796680498
+      }
+    ],
+    "BEN_OTH": [
+      {
+        "predicted": "BEN_OTH",
+        "true": "BCC",
+        "count": 1,
+        "rate_of_predicted": 0.2
+      },
+      {
+        "predicted": "BEN_OTH",
+        "true": "INF",
+        "count": 1,
+        "rate_of_predicted": 0.2
+      },
+      {
+        "predicted": "BEN_OTH",
+        "true": "NV",
+        "count": 1,
+        "rate_of_predicted": 0.2
+      }
+    ],
+    "BKL": [
+      {
+        "predicted": "BKL",
+        "true": "BCC",
+        "count": 14,
+        "rate_of_predicted": 0.17073170731707318
+      },
+      {
+        "predicted": "BKL",
+        "true": "SCCKA",
+        "count": 6,
+        "rate_of_predicted": 0.07317073170731707
+      },
+      {
+        "predicted": "BKL",
+        "true": "MEL",
+        "count": 3,
+        "rate_of_predicted": 0.036585365853658534
+      },
+      {
+        "predicted": "BKL",
+        "true": "NV",
+        "count": 3,
+        "rate_of_predicted": 0.036585365853658534
+      },
+      {
+        "predicted": "BKL",
+        "true": "AKIEC",
+        "count": 2,
+        "rate_of_predicted": 0.024390243902439025
+      },
+      {
+        "predicted": "BKL",
+        "true": "BEN_OTH",
+        "count": 1,
+        "rate_of_predicted": 0.012195121951219513
+      }
+    ],
+    "DF": [
+      {
+        "predicted": "DF",
+        "true": "BCC",
+        "count": 3,
+        "rate_of_predicted": 0.21428571428571427
+      },
+      {
+        "predicted": "DF",
+        "true": "SCCKA",
+        "count": 2,
+        "rate_of_predicted": 0.14285714285714285
+      },
+      {
+        "predicted": "DF",
+        "true": "BKL",
+        "count": 1,
+        "rate_of_predicted": 0.07142857142857142
+      },
+      {
+        "predicted": "DF",
+        "true": "INF",
+        "count": 1,
+        "rate_of_predicted": 0.07142857142857142
+      },
+      {
+        "predicted": "DF",
+        "true": "NV",
+        "count": 1,
+        "rate_of_predicted": 0.07142857142857142
+      }
+    ],
+    "INF": [
+      {
+        "predicted": "INF",
+        "true": "AKIEC",
+        "count": 1,
+        "rate_of_predicted": 0.09090909090909091
+      },
+      {
+        "predicted": "INF",
+        "true": "BCC",
+        "count": 1,
+        "rate_of_predicted": 0.09090909090909091
+      },
+      {
+        "predicted": "INF",
+        "true": "BEN_OTH",
+        "count": 1,
+        "rate_of_predicted": 0.09090909090909091
+      },
+      {
+        "predicted": "INF",
+        "true": "BKL",
+        "count": 1,
+        "rate_of_predicted": 0.09090909090909091
+      },
+      {
+        "predicted": "INF",
+        "true": "DF",
+        "count": 1,
+        "rate_of_predicted": 0.09090909090909091
+      },
+      {
+        "predicted": "INF",
+        "true": "MEL",
+        "count": 1,
+        "rate_of_predicted": 0.09090909090909091
+      },
+      {
+        "predicted": "INF",
+        "true": "SCCKA",
+        "count": 1,
+        "rate_of_predicted": 0.09090909090909091
+      }
+    ],
+    "MAL_OTH": [],
+    "MEL": [
+      {
+        "predicted": "MEL",
+        "true": "NV",
+        "count": 13,
+        "rate_of_predicted": 0.14772727272727273
+      },
+      {
+        "predicted": "MEL",
+        "true": "BCC",
+        "count": 7,
+        "rate_of_predicted": 0.07954545454545454
+      },
+      {
+        "predicted": "MEL",
+        "true": "BKL",
+        "count": 6,
+        "rate_of_predicted": 0.06818181818181818
+      },
+      {
+        "predicted": "MEL",
+        "true": "AKIEC",
+        "count": 2,
+        "rate_of_predicted": 0.022727272727272728
+      },
+      {
+        "predicted": "MEL",
+        "true": "BEN_OTH",
+        "count": 2,
+        "rate_of_predicted": 0.022727272727272728
+      },
+      {
+        "predicted": "MEL",
+        "true": "DF",
+        "count": 1,
+        "rate_of_predicted": 0.011363636363636364
+      },
+      {
+        "predicted": "MEL",
+        "true": "MAL_OTH",
+        "count": 1,
+        "rate_of_predicted": 0.011363636363636364
+      }
+    ],
+    "NV": [
+      {
+        "predicted": "NV",
+        "true": "MEL",
+        "count": 20,
+        "rate_of_predicted": 0.12987012987012986
+      },
+      {
+        "predicted": "NV",
+        "true": "BKL",
+        "count": 4,
+        "rate_of_predicted": 0.025974025974025976
+      },
+      {
+        "predicted": "NV",
+        "true": "BCC",
+        "count": 2,
+        "rate_of_predicted": 0.012987012987012988
+      },
+      {
+        "predicted": "NV",
+        "true": "BEN_OTH",
+        "count": 1,
+        "rate_of_predicted": 0.006493506493506494
+      },
+      {
+        "predicted": "NV",
+        "true": "DF",
+        "count": 1,
+        "rate_of_predicted": 0.006493506493506494
+      }
+    ],
+    "SCCKA": [
+      {
+        "predicted": "SCCKA",
+        "true": "BCC",
+        "count": 20,
+        "rate_of_predicted": 0.1941747572815534
+      },
+      {
+        "predicted": "SCCKA",
+        "true": "BKL",
+        "count": 12,
+        "rate_of_predicted": 0.11650485436893204
+      },
+      {
+        "predicted": "SCCKA",
+        "true": "AKIEC",
+        "count": 8,
+        "rate_of_predicted": 0.07766990291262135
+      },
+      {
+        "predicted": "SCCKA",
+        "true": "MEL",
+        "count": 1,
+        "rate_of_predicted": 0.009708737864077669
+      },
+      {
+        "predicted": "SCCKA",
+        "true": "VASC",
+        "count": 1,
+        "rate_of_predicted": 0.009708737864077669
+      }
+    ],
+    "VASC": [
+      {
+        "predicted": "VASC",
+        "true": "MEL",
+        "count": 2,
+        "rate_of_predicted": 0.16666666666666666
+      },
+      {
+        "predicted": "VASC",
+        "true": "NV",
+        "count": 2,
+        "rate_of_predicted": 0.16666666666666666
+      },
+      {
+        "predicted": "VASC",
+        "true": "BCC",
+        "count": 1,
+        "rate_of_predicted": 0.08333333333333333
+      }
+    ]
+  },
+  "top_confusion_pairs": [
+    {
+      "true": "BCC",
+      "predicted": "AKIEC",
+      "count": 30,
+      "rate_of_true": 0.05952380952380952
+    },
+    {
+      "true": "BKL",
+      "predicted": "BCC",
+      "count": 22,
+      "rate_of_true": 0.2018348623853211
+    },
+    {
+      "true": "BCC",
+      "predicted": "SCCKA",
+      "count": 20,
+      "rate_of_true": 0.03968253968253968
+    },
+    {
+      "true": "MEL",
+      "predicted": "NV",
+      "count": 20,
+      "rate_of_true": 0.2222222222222222
+    },
+    {
+      "true": "BCC",
+      "predicted": "BKL",
+      "count": 14,
+      "rate_of_true": 0.027777777777777776
+    },
+    {
+      "true": "NV",
+      "predicted": "MEL",
+      "count": 13,
+      "rate_of_true": 0.087248322147651
+    },
+    {
+      "true": "SCCKA",
+      "predicted": "AKIEC",
+      "count": 13,
+      "rate_of_true": 0.1368421052631579
+    },
+    {
+      "true": "BKL",
+      "predicted": "SCCKA",
+      "count": 12,
+      "rate_of_true": 0.11009174311926606
+    },
+    {
+      "true": "SCCKA",
+      "predicted": "BCC",
+      "count": 12,
+      "rate_of_true": 0.12631578947368421
+    },
+    {
+      "true": "BKL",
+      "predicted": "AKIEC",
+      "count": 10,
+      "rate_of_true": 0.09174311926605505
+    },
+    {
+      "true": "AKIEC",
+      "predicted": "SCCKA",
+      "count": 8,
+      "rate_of_true": 0.13114754098360656
+    },
+    {
+      "true": "BCC",
+      "predicted": "MEL",
+      "count": 7,
+      "rate_of_true": 0.013888888888888888
+    },
+    {
+      "true": "AKIEC",
+      "predicted": "BCC",
+      "count": 6,
+      "rate_of_true": 0.09836065573770492
+    },
+    {
+      "true": "BKL",
+      "predicted": "MEL",
+      "count": 6,
+      "rate_of_true": 0.05504587155963303
+    },
+    {
+      "true": "MEL",
+      "predicted": "BCC",
+      "count": 6,
+      "rate_of_true": 0.06666666666666667
+    },
+    {
+      "true": "SCCKA",
+      "predicted": "BKL",
+      "count": 6,
+      "rate_of_true": 0.06315789473684211
+    },
+    {
+      "true": "BKL",
+      "predicted": "NV",
+      "count": 4,
+      "rate_of_true": 0.03669724770642202
+    },
+    {
+      "true": "BCC",
+      "predicted": "DF",
+      "count": 3,
+      "rate_of_true": 0.005952380952380952
+    },
+    {
+      "true": "INF",
+      "predicted": "BCC",
+      "count": 3,
+      "rate_of_true": 0.3
+    },
+    {
+      "true": "MEL",
+      "predicted": "BKL",
+      "count": 3,
+      "rate_of_true": 0.03333333333333333
+    }
+  ],
+  "watched_confusion_patterns": [
+    {
+      "true": "BCC",
+      "predicted": "AKIEC",
+      "count": 30,
+      "rate_of_true": 0.05952380952380952
+    },
+    {
+      "true": "BCC",
+      "predicted": "SCCKA",
+      "count": 20,
+      "rate_of_true": 0.03968253968253968
+    },
+    {
+      "true": "BCC",
+      "predicted": "BKL",
+      "count": 14,
+      "rate_of_true": 0.027777777777777776
+    },
+    {
+      "true": "SCCKA",
+      "predicted": "AKIEC",
+      "count": 13,
+      "rate_of_true": 0.1368421052631579
+    },
+    {
+      "true": "BKL",
+      "predicted": "SCCKA",
+      "count": 12,
+      "rate_of_true": 0.11009174311926606
+    },
+    {
+      "true": "AKIEC",
+      "predicted": "SCCKA",
+      "count": 8,
+      "rate_of_true": 0.13114754098360656
+    },
+    {
+      "true": "SCCKA",
+      "predicted": "BKL",
+      "count": 6,
+      "rate_of_true": 0.06315789473684211
+    },
+    {
+      "true": "INF",
+      "predicted": "BCC",
+      "count": 3,
+      "rate_of_true": 0.3
+    },
+    {
+      "true": "INF",
+      "predicted": "BEN_OTH",
+      "count": 1,
+      "rate_of_true": 0.1
+    }
+  ]
+}

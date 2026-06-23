@@ -5,6 +5,31 @@ Thư mục này có 3 script:
 - `prepare_milk10k_sd_training_set.py`: tách data MILK10k thành folder train Stable Diffusion/LoRA cho **1 class** và **1 loại ảnh**.
 - `generate_milk10k_sd.py`: dùng Stable Diffusion `img2img` để tạo ảnh augmentation cho **1 class** và **1 loại ảnh**.
 - `plot_generated_images.py`: gom ảnh trong 1 folder thành grid/contact sheet để kiểm tra nhanh.
+- `plan_and_materialize_balanced_milk10k.py`: audit phân phối real/synthetic, cap BCC, lập quota SD/QC và tùy chọn tạo dataset paired cân bằng riêng.
+
+## Audit và lập balance plan
+
+Chạy audit trên các CSV hiện có mà chưa materialize:
+
+```bash
+python Stable_diffusion_augmentation/plan_and_materialize_balanced_milk10k.py \
+  --base-data-dir data_related \
+  --report-dir data_related/augmented_info/balance_audit
+```
+
+Khi đã có ảnh synthetic và QC summary, tạo dataset riêng bằng hardlink:
+
+```bash
+python Stable_diffusion_augmentation/plan_and_materialize_balanced_milk10k.py \
+  --base-data-dir data_related \
+  --synthetic-input-dir /path/to/synthetic_prediction_input \
+  --qc-summary /path/to/effb2_qc_summary.csv \
+  --report-dir /path/to/balance_report \
+  --materialize-dir /path/to/milk10k_balanced \
+  --require-target-pred
+```
+
+Script chỉ materialize synthetic có đủ clinical + dermoscopic và pass QC. Dataset output cần train với `--synthetic-train-only` để synthetic không vào validation.
 
 ## Điểm quan trọng của MILK10k
 
@@ -84,6 +109,14 @@ Cài dependency:
 ```bash
 pip install torch diffusers transformers accelerate pillow tqdm
 ```
+
+Nếu gặp lỗi kiểu `No module named 'flash_attn.flash_attn_interface'`, thường là do `xformers` bị lệch với Python/torch. Với pipeline này `xformers` là optional, cách sửa nhanh là gỡ nó:
+
+```bash
+pip uninstall -y xformers flash-attn
+```
+
+Trên Python 3.13, nên chạy trước không có `xformers`; script vẫn bật attention slicing trên CUDA.
 
 Sinh ảnh clinical cho class `MEL`:
 
@@ -319,3 +352,105 @@ python Stable_diffusion_augmentation/generate_milk10k_sd.py \
 ```
 
 Với class cực ít ảnh như `MAL_OTH`, nên cẩn thận vì LoRA rất dễ học thuộc. Bắt đầu bằng `img2img` strength thấp, kiểm tra thủ công, và không đưa ảnh sinh vào validation/test.
+
+## 4. Paired augmentation cho class ít ảnh
+
+Nếu chỉ muốn augment các class ít ảnh và giữ đúng cặp `clinical_close_up` + `dermoscopic` theo cùng lesion, dùng:
+
+```bash
+python Stable_diffusion_augmentation/generate_milk10k_sd_pairs.py \
+  --data-dir /path/to/milk10k \
+  --output-dir Stable_diffusion_augmentation/out_minority_pairs \
+  --num-per-lesion 3 \
+  --strength 0.35 \
+  --steps 30
+```
+
+Nếu ảnh và CSV nằm ở chỗ khác nhau, truyền path rõ ràng:
+
+```bash
+python Stable_diffusion_augmentation/generate_milk10k_sd_pairs.py \
+  --input-dir MILK10k_Training_Input \
+  --metadata-csv data_related/MILK10k_Training_Metadata.csv \
+  --groundtruth-csv data_related/MILK10k_Training_GroundTruth.csv \
+  --output-dir Stable_diffusion_augmentation/out_minority_pairs
+```
+
+Trước khi chạy diffusion, script sẽ in và lưu:
+
+```text
+generation_plan.csv
+generation_config.json
+```
+
+Hai file này ghi rõ class nào được chọn, bao nhiêu source lesions, bao nhiêu synthetic pairs, seed, prompt/model settings, source paths và output paths. Nếu muốn resume nhẹ và bỏ qua ảnh đã có:
+
+```bash
+python Stable_diffusion_augmentation/generate_milk10k_sd_pairs.py \
+  --input-dir MILK10k_Training_Input \
+  --metadata-csv data_related/MILK10k_Training_Metadata.csv \
+  --groundtruth-csv data_related/MILK10k_Training_GroundTruth.csv \
+  --output-dir Stable_diffusion_augmentation/out_minority_pairs \
+  --skip-existing
+```
+
+Mặc định script chỉ generate các class dưới 100 paired lesions:
+
+```text
+MAL_OTH, BEN_OTH, VASC, INF, DF
+```
+
+Output chính:
+
+```text
+Stable_diffusion_augmentation/out_minority_pairs/
+  prediction_input/
+    <synthetic_lesion_id>/
+      <synthetic_clinical_isic_id>.jpg
+      <synthetic_dermoscopic_isic_id>.jpg
+  paired_augmentation_manifest.csv
+  metadata_for_prediction.csv
+  groundtruth_for_prediction.csv
+```
+
+`metadata_for_prediction.csv` dùng metadata neutral để chạy EffB2 QC, tránh để metadata source gợi ý class.
+
+Plot ảnh synthetic theo class và modality:
+
+```bash
+python Stable_diffusion_augmentation/plot_generated_pairs_by_class.py \
+  --manifest Stable_diffusion_augmentation/out_minority_pairs/paired_augmentation_manifest.csv \
+  --output-file Stable_diffusion_augmentation/out_minority_pairs/generated_pairs_by_class.png \
+  --max-pairs-per-class 20
+```
+
+Chạy EffB2 QC prediction:
+
+```bash
+python Stable_diffusion_augmentation/run_effb2_qc.py \
+  --checkpoint /path/to/effb2_best.pt \
+  --output-dir Stable_diffusion_augmentation/out_minority_pairs \
+  --batch-size 16 \
+  --image-size 384
+```
+
+Wrapper này tự chạy `predict_milk10k_effb2_dual_metadata.py`, tạo `effb2_qc_predictions.csv`, tạo `effb2_qc_summary.csv`, rồi print confidence summary theo class.
+
+Nếu đã có prediction CSV và chỉ muốn tạo lại summary:
+
+```bash
+python Stable_diffusion_augmentation/summarize_effb2_qc.py \
+  --manifest Stable_diffusion_augmentation/out_minority_pairs/paired_augmentation_manifest.csv \
+  --predictions Stable_diffusion_augmentation/out_minority_pairs/effb2_qc_predictions.csv \
+  --output Stable_diffusion_augmentation/out_minority_pairs/effb2_qc_summary.csv
+```
+
+Khi train image-only dual encoder, append synthetic vào train split bằng:
+
+```bash
+python milk10k_dual_encoder/INDIVIDUAL_SCRIPTS/train_milk10k_fusion_dual_encoder_v2.py \
+  --data-dir /path/to/milk10k \
+  --paired-augmentation-manifest Stable_diffusion_augmentation/out_minority_pairs/paired_augmentation_manifest.csv
+```
+
+Không dùng `--paired-augmentation-manifest` với `metadata_fusion`; synthetic chỉ được append vào train split, không đưa vào validation/test.

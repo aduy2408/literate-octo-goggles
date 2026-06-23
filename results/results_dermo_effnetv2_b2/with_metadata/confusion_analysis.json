@@ -1,0 +1,124 @@
+{
+  "top_confusion_pairs": [
+    {
+      "true": "MEL",
+      "predicted": "NV",
+      "count": 26,
+      "rate_of_true": 0.28888888888888886
+    },
+    {
+      "true": "BKL",
+      "predicted": "BCC",
+      "count": 23,
+      "rate_of_true": 0.21100917431192662
+    },
+    {
+      "true": "BCC",
+      "predicted": "BKL",
+      "count": 20,
+      "rate_of_true": 0.039603960396039604
+    },
+    {
+      "true": "SCCKA",
+      "predicted": "BCC",
+      "count": 14,
+      "rate_of_true": 0.14736842105263157
+    },
+    {
+      "true": "SCCKA",
+      "predicted": "BKL",
+      "count": 14,
+      "rate_of_true": 0.14736842105263157
+    },
+    {
+      "true": "AKIEC",
+      "predicted": "BKL",
+      "count": 13,
+      "rate_of_true": 0.21311475409836064
+    },
+    {
+      "true": "BCC",
+      "predicted": "AKIEC",
+      "count": 13,
+      "rate_of_true": 0.02574257425742574
+    },
+    {
+      "true": "BKL",
+      "predicted": "AKIEC",
+      "count": 13,
+      "rate_of_true": 0.11926605504587157
+    },
+    {
+      "true": "SCCKA",
+      "predicted": "AKIEC",
+      "count": 12,
+      "rate_of_true": 0.12631578947368421
+    },
+    {
+      "true": "AKIEC",
+      "predicted": "BCC",
+      "count": 11,
+      "rate_of_true": 0.18032786885245902
+    },
+    {
+      "true": "NV",
+      "predicted": "MEL",
+      "count": 11,
+      "rate_of_true": 0.0738255033557047
+    },
+    {
+      "true": "BKL",
+      "predicted": "SCCKA",
+      "count": 10,
+      "rate_of_true": 0.09174311926605505
+    },
+    {
+      "true": "NV",
+      "predicted": "BCC",
+      "count": 10,
+      "rate_of_true": 0.06711409395973154
+    },
+    {
+      "true": "BKL",
+      "predicted": "NV",
+      "count": 9,
+      "rate_of_true": 0.08256880733944955
+    },
+    {
+      "true": "AKIEC",
+      "predicted": "SCCKA",
+      "count": 7,
+      "rate_of_true": 0.11475409836065574
+    },
+    {
+      "true": "BCC",
+      "predicted": "SCCKA",
+      "count": 7,
+      "rate_of_true": 0.013861386138613862
+    },
+    {
+      "true": "MEL",
+      "predicted": "BKL",
+      "count": 7,
+      "rate_of_true": 0.07777777777777778
+    },
+    {
+      "true": "NV",
+      "predicted": "BKL",
+      "count": 7,
+      "rate_of_true": 0.04697986577181208
+    },
+    {
+      "true": "BCC",
+      "predicted": "INF",
+      "count": 6,
+      "rate_of_true": 0.011881188118811881
+    },
+    {
+      "true": "BEN_OTH",
+      "predicted": "NV",
+      "count": 6,
+      "rate_of_true": 0.2608695652173913
+    }
+  ]
+}

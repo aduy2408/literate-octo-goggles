@@ -1,0 +1,23 @@
+duyle2408/results_effnetv2_balanced_pretrained
+duyle2408/milk10k_dual_effb2_metadata
+duyle2408/milk10k_effv2b2_metadata_results
+duyle2408/all_runs_imp
+duyle2408/attention_no_calib_sweep
+duyle2408/machine_gate_no_calib_sweep
+duyle2408/milk10k_effb2_concat_baseline
+duyle2408/results_dermo_effnetv2_b2
+duyle2408/milk10k_effv2b2_no_metadata_results
+
+#new_update
+duyle2408/results_machine3_fusion_loss
+duyle2408/report_runs_machine2_meta_aug_derm (this was upda)
+duyle2408/results_machine1_backbones
+
+#new_update2
+duyle2408/report_runs_hybrid_tail_ablation
+duyle2408/report_runs_machine2_meta_aug_derm has a new update on folder report_effv2b2_meta_concat_focal_hybrid_clean which i dont know where it came from and need checking
+
+#new_update3
+
+duyle2408/report_single_encoder_no_freeze
+duyle2408/report_single_encoder

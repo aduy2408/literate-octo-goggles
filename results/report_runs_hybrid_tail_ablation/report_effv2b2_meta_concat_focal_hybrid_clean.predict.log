@@ -1,0 +1,4 @@
+  0%|          | 0/60 [00:00<?, ?it/s]  2%|▏         | 1/60 [00:01<01:21,  1.38s/it] 17%|█▋        | 10/60 [00:01<00:05,  9.02it/s] 27%|██▋       | 16/60 [00:01<00:02, 14.81it/s] 37%|███▋      | 22/60 [00:01<00:01, 20.80it/s] 47%|████▋     | 28/60 [00:01<00:01, 26.18it/s] 57%|█████▋    | 34/60 [00:01<00:00, 31.07it/s] 65%|██████▌   | 39/60 [00:02<00:00, 34.00it/s] 75%|███████▌  | 45/60 [00:02<00:00, 38.79it/s] 85%|████████▌ | 51/60 [00:02<00:00, 41.06it/s] 95%|█████████▌| 57/60 [00:02<00:00, 45.17it/s]                                               Checkpoint best.pt: variant=raw, temperature=1.0000
+Tail audit DF: predicted_count=10, mean_probability=0.020907, max_probability=0.863777
+Tail audit INF: predicted_count=8, mean_probability=0.022669, max_probability=0.568902
+Saved predictions: /marimo/report_runs_hybrid_tail_ablation_submissions/report_effv2b2_meta_concat_focal_hybrid_clean.csv

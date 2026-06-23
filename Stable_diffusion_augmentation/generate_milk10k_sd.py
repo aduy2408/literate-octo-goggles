@@ -121,6 +121,11 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--fp32", action="store_true", help="Use float32 instead of fp16 on CUDA.")
     parser.add_argument(
+        "--allow-black-images",
+        action="store_true",
+        help="Allow nearly black outputs. By default these fail because they usually mean safety-checker blocking.",
+    )
+    parser.add_argument(
         "--disable-safety-checker",
         action="store_true",
         help="Disable diffusers safety checker if it incorrectly blocks clinical skin images.",
@@ -179,7 +184,18 @@ def load_class_rows(data_dir: Path, class_name: str, image_type: str) -> list[di
 
 def load_pipeline(args: argparse.Namespace):
     import torch
-    from diffusers import StableDiffusionImg2ImgPipeline
+    try:
+        from diffusers import StableDiffusionImg2ImgPipeline
+    except RuntimeError as exc:
+        message = str(exc)
+        if "flash_attn.flash_attn_interface" in message or "xformers" in message:
+            raise RuntimeError(
+                "Diffusers failed while importing xformers/flash-attn. xformers is optional for this script; "
+                "your install appears broken. Fix with:\n\n"
+                "  pip uninstall -y xformers flash-attn\n\n"
+                "Then rerun. The script still enables attention slicing on CUDA."
+            ) from exc
+        raise
 
     model_id = resolve_model_id(args)
     device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -215,6 +231,14 @@ def prepare_image(path: Path, size: int) -> Image.Image:
         return ImageOps.fit(img, (size, size), method=Image.Resampling.LANCZOS)
 
 
+def looks_like_blocked_black_image(image: Image.Image) -> bool:
+    stat_image = image.convert("L").resize((32, 32), resample=Image.Resampling.BILINEAR)
+    pixels = list(stat_image.getdata())
+    mean_value = sum(pixels) / max(len(pixels), 1)
+    bright_pixels = sum(1 for value in pixels if value > 8)
+    return mean_value < 3.0 and bright_pixels / max(len(pixels), 1) < 0.01
+
+
 def main() -> None:
     args = parse_args()
     import torch
@@ -228,6 +252,11 @@ def main() -> None:
     output_dir = args.output_dir.expanduser().resolve()
     image_dir = output_dir / args.class_name / args.image_type
     image_dir.mkdir(parents=True, exist_ok=True)
+    if not args.disable_safety_checker:
+        print(
+            "Warning: diffusers safety checker is enabled. Clinical/dermoscopic skin images may be falsely "
+            "blocked and returned as black images. If that happens, rerun with --disable-safety-checker."
+        )
 
     rows = load_class_rows(data_dir, args.class_name, args.image_type)
     if args.shuffle:
@@ -279,7 +308,15 @@ def main() -> None:
                 )
                 out_name = f"{row['lesion_id']}_{row['isic_id']}_sd_{aug_idx:02d}_seed{seed}.jpg"
                 out_path = image_dir / out_name
-                result.images[0].save(out_path, quality=95)
+                image = result.images[0]
+                if not args.allow_black_images and looks_like_blocked_black_image(image):
+                    raise RuntimeError(
+                        "Stable Diffusion returned a nearly black image. This usually means the default safety checker "
+                        "blocked a clinical skin image as NSFW. Rerun with:\n\n"
+                        "  --disable-safety-checker\n\n"
+                        f"Blocked output path would have been: {out_path}"
+                    )
+                image.save(out_path, quality=95)
 
                 writer.writerow(
                     {

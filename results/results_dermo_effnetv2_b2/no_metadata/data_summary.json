@@ -1,0 +1,99 @@
+{
+  "full": {
+    "rows": 5772,
+    "real_rows": 5240,
+    "synthetic_rows": 532,
+    "ignore_metadata_rows": 0,
+    "class_counts": {
+      "AKIEC": 303,
+      "BCC": 2522,
+      "BEN_OTH": 115,
+      "BKL": 544,
+      "DF": 149,
+      "INF": 140,
+      "MAL_OTH": 58,
+      "MEL": 450,
+      "NV": 746,
+      "SCCKA": 473,
+      "VASC": 272
+    },
+    "synthetic_class_counts": {
+      "AKIEC": 0,
+      "BCC": 0,
+      "BEN_OTH": 71,
+      "BKL": 0,
+      "DF": 97,
+      "INF": 90,
+      "MAL_OTH": 49,
+      "MEL": 0,
+      "NV": 0,
+      "SCCKA": 0,
+      "VASC": 225
+    }
+  },
+  "train": {
+    "rows": 4617,
+    "real_rows": 4181,
+    "synthetic_rows": 436,
+    "ignore_metadata_rows": 0,
+    "class_counts": {
+      "AKIEC": 242,
+      "BCC": 2017,
+      "BEN_OTH": 92,
+      "BKL": 435,
+      "DF": 119,
+      "INF": 112,
+      "MAL_OTH": 47,
+      "MEL": 360,
+      "NV": 597,
+      "SCCKA": 378,
+      "VASC": 218
+    },
+    "synthetic_class_counts": {
+      "AKIEC": 0,
+      "BCC": 0,
+      "BEN_OTH": 59,
+      "BKL": 0,
+      "DF": 77,
+      "INF": 76,
+      "MAL_OTH": 40,
+      "MEL": 0,
+      "NV": 0,
+      "SCCKA": 0,
+      "VASC": 184
+    }
+  },
+  "val": {
+    "rows": 1155,
+    "real_rows": 1059,
+    "synthetic_rows": 96,
+    "ignore_metadata_rows": 0,
+    "class_counts": {
+      "AKIEC": 61,
+      "BCC": 505,
+      "BEN_OTH": 23,
+      "BKL": 109,
+      "DF": 30,
+      "INF": 28,
+      "MAL_OTH": 11,
+      "MEL": 90,
+      "NV": 149,
+      "SCCKA": 95,
+      "VASC": 54
+    },
+    "synthetic_class_counts": {
+      "AKIEC": 0,
+      "BCC": 0,
+      "BEN_OTH": 12,
+      "BKL": 0,
+      "DF": 20,
+      "INF": 14,
+      "MAL_OTH": 9,
+      "MEL": 0,
+      "NV": 0,
+      "SCCKA": 0,
+      "VASC": 41
+    }
+  },
+  "synthetic_train_only": false
+}

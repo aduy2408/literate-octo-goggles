@@ -1,0 +1,102 @@
+{
+  "full": {
+    "rows": 5240,
+    "class_counts": {
+      "AKIEC": 303,
+      "BCC": 2522,
+      "BEN_OTH": 44,
+      "BKL": 544,
+      "DF": 52,
+      "INF": 50,
+      "MAL_OTH": 9,
+      "MEL": 450,
+      "NV": 746,
+      "SCCKA": 473,
+      "VASC": 47
+    },
+    "real_rows": 5240,
+    "synthetic_rows": 0,
+    "synthetic_class_counts": {
+      "AKIEC": 0,
+      "BCC": 0,
+      "BEN_OTH": 0,
+      "BKL": 0,
+      "DF": 0,
+      "INF": 0,
+      "MAL_OTH": 0,
+      "MEL": 0,
+      "NV": 0,
+      "SCCKA": 0,
+      "VASC": 0
+    },
+    "ignore_metadata_rows": 0,
+    "dermoscopic_mask_status_counts": {}
+  },
+  "train": {
+    "rows": 4222,
+    "class_counts": {
+      "AKIEC": 242,
+      "BCC": 2018,
+      "BEN_OTH": 50,
+      "BKL": 435,
+      "DF": 42,
+      "INF": 55,
+      "MAL_OTH": 7,
+      "MEL": 360,
+      "NV": 597,
+      "SCCKA": 378,
+      "VASC": 38
+    },
+    "real_rows": 4192,
+    "synthetic_rows": 30,
+    "synthetic_class_counts": {
+      "AKIEC": 0,
+      "BCC": 0,
+      "BEN_OTH": 15,
+      "BKL": 0,
+      "DF": 0,
+      "INF": 15,
+      "MAL_OTH": 0,
+      "MEL": 0,
+      "NV": 0,
+      "SCCKA": 0,
+      "VASC": 0
+    },
+    "ignore_metadata_rows": 0,
+    "dermoscopic_mask_status_counts": {}
+  },
+  "val": {
+    "rows": 1048,
+    "class_counts": {
+      "AKIEC": 61,
+      "BCC": 504,
+      "BEN_OTH": 9,
+      "BKL": 109,
+      "DF": 10,
+      "INF": 10,
+      "MAL_OTH": 2,
+      "MEL": 90,
+      "NV": 149,
+      "SCCKA": 95,
+      "VASC": 9
+    },
+    "real_rows": 1048,
+    "synthetic_rows": 0,
+    "synthetic_class_counts": {
+      "AKIEC": 0,
+      "BCC": 0,
+      "BEN_OTH": 0,
+      "BKL": 0,
+      "DF": 0,
+      "INF": 0,
+      "MAL_OTH": 0,
+      "MEL": 0,
+      "NV": 0,
+      "SCCKA": 0,
+      "VASC": 0
+    },
+    "ignore_metadata_rows": 0,
+    "dermoscopic_mask_status_counts": {}
+  },
+  "synthetic_train_only": true
+}

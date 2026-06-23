@@ -1,0 +1,4 @@
+  0%|          | 0/60 [00:00<?, ?it/s]  2%|▏         | 1/60 [00:01<01:15,  1.27s/it] 17%|█▋        | 10/60 [00:01<00:05,  9.64it/s] 25%|██▌       | 15/60 [00:01<00:03, 14.65it/s] 35%|███▌      | 21/60 [00:01<00:01, 21.47it/s] 45%|████▌     | 27/60 [00:01<00:01, 26.82it/s] 55%|█████▌    | 33/60 [00:01<00:00, 32.43it/s] 65%|██████▌   | 39/60 [00:01<00:00, 35.95it/s] 73%|███████▎  | 44/60 [00:02<00:00, 38.96it/s] 83%|████████▎ | 50/60 [00:02<00:00, 41.02it/s] 93%|█████████▎| 56/60 [00:02<00:00, 45.01it/s]                                               Checkpoint best.pt: variant=raw, temperature=1.0000
+Tail audit DF: predicted_count=1, mean_probability=0.005892, max_probability=0.280576
+Tail audit INF: predicted_count=1, mean_probability=0.008950, max_probability=0.415749
+Saved predictions: /marimo/single_encoder_split_submissions/singleenc_pool_meta_clean.csv

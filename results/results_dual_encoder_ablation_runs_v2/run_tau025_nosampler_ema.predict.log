@@ -1,0 +1,4 @@
+  0%|          | 0/60 [00:00<?, ?it/s]  2%|▏         | 1/60 [00:01<01:11,  1.20s/it] 15%|█▌        | 9/60 [00:01<00:05,  9.05it/s] 25%|██▌       | 15/60 [00:01<00:02, 15.63it/s] 33%|███▎      | 20/60 [00:01<00:01, 20.71it/s] 42%|████▏     | 25/60 [00:01<00:01, 25.96it/s] 50%|█████     | 30/60 [00:01<00:01, 29.95it/s] 58%|█████▊    | 35/60 [00:01<00:00, 33.95it/s] 67%|██████▋   | 40/60 [00:01<00:00, 36.81it/s] 75%|███████▌  | 45/60 [00:02<00:00, 40.02it/s] 85%|████████▌ | 51/60 [00:02<00:00, 42.90it/s] 95%|█████████▌| 57/60 [00:02<00:00, 47.22it/s]                                               Checkpoint best.pt: variant=ema, temperature=1.4413
+Tail audit DF: predicted_count=7, mean_probability=0.020300, max_probability=0.987582
+Tail audit INF: predicted_count=6, mean_probability=0.016975, max_probability=0.675346
+Saved predictions: /marimo/dual_encoder_ablation_submissions_v2/run_tau025_nosampler_ema.csv

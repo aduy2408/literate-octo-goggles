@@ -1,0 +1,124 @@
+{
+  "top_confusion_pairs": [
+    {
+      "true": "MEL",
+      "predicted": "NV",
+      "count": 28,
+      "rate_of_true": 0.3111111111111111
+    },
+    {
+      "true": "BKL",
+      "predicted": "BCC",
+      "count": 24,
+      "rate_of_true": 0.22018348623853212
+    },
+    {
+      "true": "BCC",
+      "predicted": "BKL",
+      "count": 20,
+      "rate_of_true": 0.039603960396039604
+    },
+    {
+      "true": "SCCKA",
+      "predicted": "AKIEC",
+      "count": 20,
+      "rate_of_true": 0.21052631578947367
+    },
+    {
+      "true": "BCC",
+      "predicted": "AKIEC",
+      "count": 18,
+      "rate_of_true": 0.03564356435643564
+    },
+    {
+      "true": "BKL",
+      "predicted": "AKIEC",
+      "count": 18,
+      "rate_of_true": 0.1651376146788991
+    },
+    {
+      "true": "SCCKA",
+      "predicted": "BCC",
+      "count": 18,
+      "rate_of_true": 0.18947368421052632
+    },
+    {
+      "true": "BKL",
+      "predicted": "NV",
+      "count": 15,
+      "rate_of_true": 0.13761467889908258
+    },
+    {
+      "true": "NV",
+      "predicted": "MEL",
+      "count": 15,
+      "rate_of_true": 0.10067114093959731
+    },
+    {
+      "true": "SCCKA",
+      "predicted": "BKL",
+      "count": 13,
+      "rate_of_true": 0.1368421052631579
+    },
+    {
+      "true": "AKIEC",
+      "predicted": "BKL",
+      "count": 11,
+      "rate_of_true": 0.18032786885245902
+    },
+    {
+      "true": "NV",
+      "predicted": "BCC",
+      "count": 11,
+      "rate_of_true": 0.0738255033557047
+    },
+    {
+      "true": "AKIEC",
+      "predicted": "SCCKA",
+      "count": 8,
+      "rate_of_true": 0.13114754098360656
+    },
+    {
+      "true": "BKL",
+      "predicted": "SCCKA",
+      "count": 8,
+      "rate_of_true": 0.07339449541284404
+    },
+    {
+      "true": "MEL",
+      "predicted": "BCC",
+      "count": 8,
+      "rate_of_true": 0.08888888888888889
+    },
+    {
+      "true": "NV",
+      "predicted": "BKL",
+      "count": 8,
+      "rate_of_true": 0.053691275167785234
+    },
+    {
+      "true": "AKIEC",
+      "predicted": "BCC",
+      "count": 7,
+      "rate_of_true": 0.11475409836065574
+    },
+    {
+      "true": "BCC",
+      "predicted": "NV",
+      "count": 6,
+      "rate_of_true": 0.011881188118811881
+    },
+    {
+      "true": "MEL",
+      "predicted": "AKIEC",
+      "count": 6,
+      "rate_of_true": 0.06666666666666667
+    },
+    {
+      "true": "MEL",
+      "predicted": "BKL",
+      "count": 6,
+      "rate_of_true": 0.06666666666666667
+    }
+  ]
+}

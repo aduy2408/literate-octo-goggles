@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/marimo/code_only_derm/run_metadata_ablation.py", line 5, in <module>
+    main()
+    ~~~~^^
+  File "/marimo/code_only_derm/milk10k_effb2_dermoscopic_metadata/ablation.py", line 74, in main
+    run(parse_args())
+    ~~~^^^^^^^^^^^^^^
+  File "/marimo/code_only_derm/milk10k_effb2_dermoscopic_metadata/ablation.py", line 68, in run
+    run_training(parse_training_args(cli))
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/marimo/code_only_derm/milk10k_effb2_dermoscopic_metadata/training.py", line 238, in run
+    results.append(train_split(df,train_df,val_df,class_names,label_to_idx,args,device,backend,output,None if args.k_folds==1 else fold))
+                   ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/marimo/code_only_derm/milk10k_effb2_dermoscopic_metadata/training.py", line 162, in train_split
+    elif args.encoder_checkpoint:load_encoder_checkpoint(args.encoder_checkpoint,model.encoder,device)
+                                 ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/marimo/code_only_derm/milk10k_effb2_dermoscopic_metadata/training.py", line 83, in load_encoder_checkpoint
+    if not matched: raise RuntimeError(f"No compatible encoder weights in {path}")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: No compatible encoder weights in /marimo/ham10k_backbone/best_backbone.pth
